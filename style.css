@@ -1,0 +1,173 @@
+/* Furni — unified theme (light + dark) */
+
+:root {
+  --brand-amber: #f59e0b;
+  --brand-amber-dark: #d97706;
+  --accent-red: #dc2626;
+  --muted: #6b7280;
+  --max-width: 1200px;
+
+  /* Light theme */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --text: #111827;
+  --muted-text: #6b7280;
+  --muted-border: #e2e8f0;
+  --card-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --surface: #111827;
+  --surface-alt: #1e293b;
+  --text: #7187a1;
+  --muted-text: #94a3b8;
+  --muted-border: rgba(255,255,255,0.08);
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Layout base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar */
+.navbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--muted-border);
+}
+.navbar .nav-link {
+  color: var(--text);
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--brand-amber);
+}
+.logo-circle {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--brand-amber);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 20px;
+  box-shadow: 0 3px 8px rgba(22,22,22,0.06);
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(90deg, #fff7ed 0%, #fff1e6 100%);
+}
+[data-theme="dark"] .hero {
+  background: linear-gradient(90deg, #101826 0%, #141d2c 100%);
+}
+
+/* Cards / containers */
+.card,
+.list-group-item,
+.modal-content {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--muted-border);
+  box-shadow: var(--card-shadow);
+}
+[data-theme="dark"] .card,
+[data-theme="dark"] .list-group-item,
+[data-theme="dark"] .modal-content {
+  background: var(--surface-alt);
+}
+
+/* Product card hover */
+.card.product-card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow);
+}
+
+/* Inputs, selects, textareas */
+.form-control,
+.form-select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--muted-border);
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--brand-amber);
+  box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.25);
+}
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+/* Buttons */
+.btn-warning {
+  background: var(--brand-amber);
+  border-color: var(--brand-amber-dark);
+  color: #fff;
+}
+.btn-warning:hover {
+  background: var(--brand-amber-dark);
+}
+.btn-outline-warning {
+  color: var(--brand-amber);
+  border-color: var(--brand-amber);
+}
+.btn-outline-warning:hover {
+  background: var(--brand-amber);
+  color: #fff;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--muted-border);
+  color: var(--muted-text);
+}
+[data-theme="dark"] .site-footer {
+  background: var(--surface-alt);
+}
+
+/* Special blocks */
+#cart-empty {
+  background: var(--surface);
+  color: var(--text);
+}
+.toast {
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+}
+
+/* Carousel captions readable in dark */
+.carousel-caption {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  border-radius: .5rem;
+}
+
+/* Search icon */
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  font-size: 1rem;
+  color: var(--muted-text);
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+  .logo-circle { width: 36px; height: 36px; font-size: 18px; }
+  .hero .display-4 { font-size: 2rem; }
+}
